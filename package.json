@@ -1,0 +1,24 @@
+{
+  "name": "speck-academy-2019-project",
+  "version": "1.0.0",
+  "description": "npm install",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomiiii55/Speck-Academy-2019-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tomiiii55/Speck-Academy-2019-Project/issues"
+  },
+  "homepage": "https://github.com/tomiiii55/Speck-Academy-2019-Project#readme",
+  "dependencies": {
+    "lodash": "^4.17.11",
+    "server": "^1.0.18"
+  },
+  "devDependencies": {}
+}
