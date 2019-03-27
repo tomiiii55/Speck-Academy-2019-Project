@@ -6,3 +6,7 @@ http.createServer(function (request, response) {
 }).listen(8080);
 
 console.log('Server started');
+
+import halls from './halls.js';
+var { DateTime } = require('luxon');
+DateTime.local();
