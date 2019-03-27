@@ -22,3 +22,6 @@ function mapArray(halls) {
   var result = mapArray(halls);
   
   console.log(result);
+
+  //different name
+  var uniqNames = _.uniq(_.map(halls, 'name'));
