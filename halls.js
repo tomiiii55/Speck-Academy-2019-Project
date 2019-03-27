@@ -158,7 +158,7 @@ var dvorana2 = {
                 }
 
 
-   export {halls};
+   module.export = halls ;
    
    
    
