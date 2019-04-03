@@ -161,6 +161,21 @@ var dvorana2 = {
    export {halls};
    
    
-   
+   //Server in express
 
+   var express = require('express');
+var app = express();
+
+app.get('/', (req, res) => {
+    res.send('Hello world');
+});
+
+app.listen(3000, () => console.log('Hello world 3000!'));
+
+var dvorane = require('./halls.js');
+
+app.get('/halls', function (req, res) {
+ res.json('./halls.js');
+});
    
+app.use(express.static('Public'));
