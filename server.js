@@ -179,3 +179,18 @@ app.get('/halls', function (req, res) {
 });
    
 app.use(express.static('Public'));
+//TASK 6
+app.post("/hallsCreate", function (req, res) {
+  add(req.body.hallName);
+  res.redirect("/halls");
+});
+
+app.post("/hallsUpdate", function (req, res) {
+  add(req.body.hallName);
+  res.redirect("/halls");
+});
+
+app.post("/hallsDelete", function (req, res) {
+  delete(req.body.hallNId);
+  res.redirect("/index.html");
+});
