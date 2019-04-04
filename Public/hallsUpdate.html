@@ -13,10 +13,17 @@
       <a href="register.html">Registracija</a>
     </nav>
   </header>
-  <h2><a href="/halls.js">heading</a></h2>
-  <h3><a href="hallsCreate.html">heading</a></h3>
-  <h4><a href="hallsUpdate">heading</a></h4>
-  <h5><a href="hallsDelete">heading</a></h5>
+  <form action="http://localhost:3000/hallsUpdate" method="post">
+    <label for="hallId">Id dvorane</label>
+    <input id="hallId" placeholder="Unesite ID dvorane" name="hallId" type="text" required>
+    <br>
+    <input type="checkbox" name="isReserved" value="hallID"> Rezervirana je?<br>
+    <br>
+
+    <br>
+
+    <input class="button" type="submit" value="Dodajte dvoranu">
+  </form>
 
   <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="office">
 

@@ -13,10 +13,15 @@
       <a href="register.html">Registracija</a>
     </nav>
   </header>
-  <h2><a href="/halls.js">heading</a></h2>
-  <h3><a href="hallsCreate.html">heading</a></h3>
-  <h4><a href="hallsUpdate">heading</a></h4>
-  <h5><a href="hallsDelete">heading</a></h5>
+  <form action="http://localhost:3000/hallsCreate" method="post">
+    <label for="hallName">Ime dvorane</label>
+    <input id="hallName" placeholder="Unesite ime dvorane " name="hallName" type="text" required>
+    <br>
+
+    <br>
+
+    <input class="button" type="submit" value="Dodajte dvoranu">
+  </form>
 
   <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="office">
 
