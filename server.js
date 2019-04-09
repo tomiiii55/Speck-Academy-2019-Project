@@ -67,7 +67,7 @@ var dvorana2 = {
 const http = require('http');
 
 const hostname = '127.0.0.1';
-const port = 3000;
+const port = 3015;
 
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
@@ -170,7 +170,7 @@ app.get('/', (req, res) => {
     res.send('Hello world');
 });
 
-app.listen(3000, () => console.log('Hello world 3000!'));
+app.listen(3015, () => console.log('Hello world 3000!'));
 
 var dvorane = require('./halls.js');
 
