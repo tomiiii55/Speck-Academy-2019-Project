@@ -163,14 +163,13 @@ var dvorana2 = {
    
    //Server in express
 
-   var express = require('express');
-var app = express();
-
-app.get('/', (req, res) => {
-    res.send('Hello world');
-});
-
-app.listen(3015, () => console.log('Hello world 3000!'));
+   const express = require('express')
+   const app = express()
+   const port = 3015;
+   
+   app.get('/', (req, res) => res.send('Hello World!'))
+   
+   app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
 var dvorane = require('./halls.js');
 
