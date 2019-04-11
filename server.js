@@ -8,7 +8,7 @@ app.use( "/halls" , function( req , res ){
     res.json(halls);
 });
 
-app.use('/', express.static('public')); //izvuci sve iteme i prikazi 
+app.use('/', express.static('Public')); //izvuci sve iteme i prikazi 
 
 app.use(bodyParser.urlencoded({ //
     extended:false
