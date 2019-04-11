@@ -1,166 +1,61 @@
-var vri= newDate ()
-var halls = ['dvorana1', 'dvorana2', 'dvorana3', 'dvoran4', 'dvorana5'];
-var dvorana1 = {
-id:1,
-name: 'DvoranaGlavna',
-reservation : {
-isReserved:new Boolean(true),
-reservedFrom:newDate(2019,03,10,10,10),
-reservedUntil:newDate(2019,03,11,10,10),
-}
-}
+var list = [
+  {name: "Dvorana1",Id: 1,reservation: {isReserved: true,reservedFrom: new Date("2019-03-20"),reservedUntil: new Date("2019-03-28"),},},
+  {name: "Dvorana2",Id: 2,reservation: {isReserved: true,reservedFrom: new Date("2019-03-20"),reservedUntil: new Date("2019-03-28"),},},
+  {name: "Dvorana3",Id: 3,reservation: {isReserved: false,reservedFrom: null,reservedUntil: null,},},
+  {name: "Dvorana4",Id: 4,reservation: {isReserved: false,reservedFrom: null,reservedUntil: null,},},
+  
+];
+var newId = 5;
 
-var dvorana2 = {
-    id:2,
-    name: 'DvoranaSporedna',
-    reservation : {
-    isReserved:new Boolean(true),
-    reservedFrom:newDate(2019,03,12,10,00),
-    reservedUntil:newDate(2019,03,13,10,0),
-    }
-    }
-
-    var dvorana3 = {
-        id:3,
-        name: 'DvoranaSkolska',
-        reservation : {
-        isReserved:new Boolean(false),
-        reservedFrom:null,
-        reservedUntil:null,
-        }
-        }
-
-        var dvorana4 = {
-            id:4,
-            name: 'DvoranaKoncertna',
-            reservation : {
-            isReserved:new Boolean(false),
-            reservedFrom:null,
-            reservedUntil:null,
-            }
-            }
-
-            var dvorana5 = {
-                id:5,
-                name: 'DvoranaMala',
-                reservation : {
-                isReserved:new Boolean(false),
-                reservedFrom:null,
-                reservedUntil:null,
-                }
-                }
-
-
-   
-   
-   
-   
-
-   //nadam se da je to okej 
-
-
-
-//var server = require('server');
-
-//server(ctx => 'Hello world!');
-
-const http = require('http');
-
-const hostname = '127.0.0.1';
-const port = 3000;
-
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World\n');
-});
-
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});
-
-//task 4
-halls.push(dvorana1, dvorana2, dvorana3, dvorana4, dvorana5);
-var imenaDvorana = [];
-imenaDvorana.push(dvorana1.name, dvorana2.name, dvorana3.name, dvorana4.name, dvorana5.name);
-console.log(imenaDvorana);
-
-//task 5
-var imenaDvoranaString = imenaDvorana.toString();
-console.log(imenaDvoranaString);
-
-//task 6
-var http = require('http');
-
-http.createServer(function (request, response) {
-    response.writeHead(200, {'Content-Type': 'text/plain'});
-    response.end(imenaDvoranaString);
-}).listen(8080);
-
-console.log('Server started');
-
-
-
-
-
-
-
-//TASK 4
-var halls = ['dvorana1', 'dvorana2', 'dvorana3', 'dvoran4', 'dvorana5'];
-var dvorana1 = {
-id:1,
-name: 'DvoranaGlavna',
-reservation : {
-isReserved:new Boolean(true),
-reservedFrom:new Date(2019,03,10,10,10),
-reservedUntil:new Date(2019,03,11,10,10),
-}
+function add(name){
+  var hall = {
+      name : name,
+      Id : newId, 
+      reservation : {
+          isReserved : false,
+          reservedFrom : null,
+          reservedUntil : null,
+      },
+  }
+  newId++;
+  list.push(hall);
 }
 
-var dvorana2 = {
-    id:2,
-    name: 'DvoranaSporedna',
-    reservation : {
-    isReserved:new Boolean(true),
-    reservedFrom:new Date(2019,03,12,10,00),
-    reservedUntil:new Date(2019,03,13,10,0),
-    }
-    }
+function remove(Id){
+  for(var i = 0 ; i < list.length ; i++){
+      if(list[i].Id === Id){
+          list.splice(i,1);
+          break;
+      }
+  }
+}
 
-    var dvorana3 = {
-        id:3,
-        name: 'DvoranaSkolska',
-        reservation : {
-        isReserved:new Boolean(false),
-        reservedFrom:null,
-        reservedUntil:null,
-        }
-        }
+function reservation(Id , reservedFrom , reservedUntil){
+  for(var i = 0 ; i < list.length ; i++){
+      if(list[i].Id === Id){
+          list[i].reservation.reservedFrom = new Date(reservedFrom);
+          list[i].reservation.reservedUntil = new Date(reservedUntil);
+          list[i].reservation.isReserved = true;
+      }
+  }
+}
 
-        var dvorana4 = {
-            id:4,
-            name: 'DvoranaSporedna',
-            reservation : {
-            isReserved:new Boolean(false),
-            reservedFrom:null,
-            reservedUntil:null,
-            }
-            }
+function checkReservation(Id){
+  for(var i = 0 ; i < list.length ; i++){
+      var currentDate = new Date();
+      if(list[i].Id === Id){
+          if(list[i].reservation.reservedUntil < currentDate ){
+              list[i].reservation.reservedFrom = null;
+              list[i].reservation.reservedUntil = null;
+              list[i].reservation.isReserved = false;
+          }
+      }
+  }
+}
 
-            var dvorana5 = {
-                id:5,
-                name: 'DvoranaMala',
-                reservation : {
-                isReserved:new Boolean(false),
-                reservedFrom:null,
-                reservedUntil:null,
-                }
-                }
-
-
-   module.export = halls ;
-   
-   
-   
-
-   
+module.exports = {
+  list,
+  add,
+  reservation, 
+  remove
+};
